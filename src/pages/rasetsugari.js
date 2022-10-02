@@ -74,7 +74,7 @@ export default function Rasetsugari() {
                   color: `${mchapter}` == `${chapter}` ? "white" : "black",
                 }}
               >
-                {chapter}
+                {chapter - 7}
               </button>
             ) : (
               <div></div>

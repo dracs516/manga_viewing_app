@@ -74,7 +74,7 @@ export default function BoundEyeSiora() {
                   color: `${mchapter}` == `${chapter}` ? "white" : "black",
                 }}
               >
-                {chapter}
+                {chapter - 3}
               </button>
             ) : (
               <div></div>

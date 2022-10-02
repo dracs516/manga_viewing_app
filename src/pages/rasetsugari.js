@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MangaCaraousel from "../components/MangaCaraousel";
@@ -8,25 +7,14 @@ export default function Rasetsugari() {
   const [book, setBook] = useState([]);
   const [mchapter, setMChapter] = useState(8);
   const route = "rasetsugari";
-  //   const [isShown, setIsShown] = useState(false);
 
   useEffect(() => {
     const url = "http://18.177.140.79:8080/books/";
-    // const url2 = "http://18.177.140.79:8080/books/1";
-
     const fetchManga = async () => {
       try {
         const response = await fetch(url);
         const json = await response.json();
-        console.log("response", json);
         setManga(json);
-        console.log("manga", manga);
-        {
-          manga.map((item) => {
-            // console.log("item", item);
-            // item.chapter_ids.map((chapter) => console.log("chapter", chapter));
-          });
-        }
       } catch (error) {
         console.log("error", error);
       }
@@ -36,17 +24,11 @@ export default function Rasetsugari() {
       try {
         const response = await fetch(url + "1/");
         const json = await response.json();
-        console.log("responsebook", json);
-        console.log("book", book);
         setBook(json);
-        console.log("book", book);
-        {
-        }
       } catch (error) {
         console.log("error", error);
       }
     };
-
     fetchManga();
     fetchBook();
     return () => {};
@@ -54,7 +36,6 @@ export default function Rasetsugari() {
 
   const handleClick = (event) => {
     setMChapter(event);
-    console.log("chapter", event);
   };
 
   return (
@@ -81,7 +62,7 @@ export default function Rasetsugari() {
           </div>
         ))}
       </div>
-      <div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         {manga.map((item) =>
           item.chapter_ids.map((chapter) =>
             route == item.title ? (

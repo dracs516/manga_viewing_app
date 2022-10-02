@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MangaCaraousel from "../components/MangaCaraousel";
@@ -7,57 +6,34 @@ export default function Home() {
   const [manga, setManga] = useState([]);
   const [book, setBook] = useState([]);
   const [mchapter, setMChapter] = useState(1);
-  //   const [sendRequest, setSendRequest] = useState(false);
   const route = "balloon_dream";
-  //   const [isShown, setIsShown] = useState(false);
-
   useEffect(() => {
     const url = "http://18.177.140.79:8080/books/";
-    // const url2 = "http://18.177.140.79:8080/books/1";
-
     const fetchManga = async () => {
-      //   if (sendRequest) {
       try {
         const response = await fetch(url);
         const json = await response.json();
-        console.log("response", json);
         setManga(json);
-        console.log("manga", manga);
-        {
-          manga.map((item) => {
-            // console.log("item", item);
-            // item.chapter_ids.map((chapter) => console.log("chapter", chapter));
-          });
-        }
       } catch (error) {
         console.log("error", error);
       }
     };
-
     const fetchBook = async () => {
       try {
         const response = await fetch(url + "1/");
         const json = await response.json();
-        console.log("responsebook", json);
-        console.log("book", book);
         setBook(json);
-        console.log("book", book);
-        {
-        }
       } catch (error) {
         console.log("error", error);
       }
     };
-
     fetchManga();
     fetchBook();
-    // setSendRequest(false);
     return () => {};
   }, []);
 
   const handleClick = (event) => {
     setMChapter(event);
-    // setSendRequest(true);
     console.log("chapter", event);
   };
 
@@ -85,7 +61,7 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         {manga.map((item) =>
           item.chapter_ids.map((chapter) =>
             route == item.title ? (

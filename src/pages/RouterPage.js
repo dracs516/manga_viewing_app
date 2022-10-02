@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import BoundEyeSiora from "./bound_eye_siora";
 import Rasetsugari from "./rasetsugari";
-import constants from "../constants";
 
 export default function RouterPage() {
   return (

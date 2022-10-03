@@ -33,7 +33,7 @@ function MangaCarousel(props) {
     backgroundPosition: "center",
   };
   return (
-    <div>
+    <div style={{backgroundColor:"white"}}>
       <div>
         <div className="buttons" style={css}>
           <div
@@ -59,7 +59,7 @@ function MangaCarousel(props) {
           ></div>
         </div>
       </div>
-      <h2 style={{ display: "flex", justifyContent: "center" }}>
+      <h2 style={{ display: "flex", justifyContent: "center",backgroundColor:"white" }}>
         {currImg}/{chapter.length}
       </h2>
     </div>

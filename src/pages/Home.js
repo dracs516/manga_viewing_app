@@ -30,7 +30,7 @@ export default function Home() {
     fetchManga();
     fetchBook();
     return () => {};
-  }, []);
+  }, [route]);
 
   const handleClick = (event) => {
     setMChapter(event);
@@ -39,16 +39,28 @@ export default function Home() {
 
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          backgroundColor: "white",
+        }}
+      >
         {manga.map((item) => (
-          <div>
-            <ul style={{ listStyleType: "none", display: "flex" }}>
+          <div style={{ backgroundColor: "white" }}>
+            <ul
+              style={{
+                listStyleType: "none",
+                display: "flex",
+                backgroundColor: "white",
+              }}
+            >
               <li>
                 <Link to={`/${item.title}/`}>
                   <button
                     style={{
                       backgroundColor:
-                        `${route}` == `${item.title}` ? "darkgreen" : "",
+                        `${route}` == `${item.title}` ? "darkgreen" : "white",
                       color: `${route}` == `${item.title}` ? "white" : "black",
                     }}
                     // onClick={handleClick}
@@ -61,7 +73,13 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          backgroundColor: "white",
+        }}
+      >
         {manga.map((item) =>
           item.chapter_ids.map((chapter) =>
             route == item.title ? (
@@ -69,7 +87,7 @@ export default function Home() {
                 onClick={() => handleClick(chapter)}
                 style={{
                   backgroundColor:
-                    `${mchapter}` == `${chapter}` ? "darkgreen" : "",
+                    `${mchapter}` == `${chapter}` ? "darkgreen" : "white",
                   color: `${mchapter}` == `${chapter}` ? "white" : "black",
                 }}
               >

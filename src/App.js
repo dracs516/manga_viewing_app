@@ -3,7 +3,7 @@ import RouterPage from "./pages/RouterPage";
 
 function App() {
   return (
-    <div>
+    <div className="main">
       <RouterPage />
     </div>
   );

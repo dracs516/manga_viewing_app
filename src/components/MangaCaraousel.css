@@ -12,6 +12,7 @@
     background-color: transparent;
 }
 .buttons{
+    background-color: white;
     width: 600px;
     height: 800px;
     display: flex;
